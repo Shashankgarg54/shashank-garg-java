@@ -1,0 +1,63 @@
+
+public class TypeCastingDemo {
+    public static void main(String[] args) {
+        
+        // Implicit Casting (Widening)
+        int intValue = 100;  // int
+        double doubleValue = intValue;  // Automatically converts int to double (widening)
+        
+        System.out.println("Implicit Casting:");
+        System.out.println("Integer value: " + intValue);
+        System.out.println("Converted to double: " + doubleValue);
+        
+        // Explicit Casting (Narrowing)
+        double largeValue = 123.456;  // double
+        int intValueFromDouble = (int) largeValue;  // Explicitly cast double to int (narrowing)
+        
+        System.out.println("\nExplicit Casting:");
+        System.out.println("Double value: " + largeValue);
+        System.out.println("Converted to int: " + intValueFromDouble);
+        
+        // Other Example: Casting between different numeric types
+        float floatValue = 9.78f; // float
+        long longValue = (long) floatValue; // Explicit cast from float to long
+        
+        System.out.println("\nAnother Example of Explicit Casting:");
+        System.out.println("Float value: " + floatValue);
+        System.out.println("Converted to long: " + longValue);
+        
+        // Char to int type casting
+        char charValue = 'A'; // char
+        int charToInt = (int) charValue; // Explicit cast from char to int
+        
+        System.out.println("\nChar to Int Conversion:");
+        System.out.println("Character value: " + charValue);
+        System.out.println("Converted to integer: " + charToInt); // ASCII value of 'A' is 65
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+Implicit Casting:
+Integer value: 100
+Converted to double: 100.0
+
+Explicit Casting:
+Double value: 123.456
+Converted to int: 123
+
+Another Example of Explicit Casting:
+Float value: 9.78
+Converted to long: 9
+
+Char to Int Conversion:
+Character value: A
+Converted to integer: 65
