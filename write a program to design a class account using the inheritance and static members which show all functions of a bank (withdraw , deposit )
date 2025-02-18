@@ -1,0 +1,99 @@
+// Base class - Account
+class Account {
+    static int accountCount = 0; // Static member to count the number of accounts
+    int accountNumber;
+    double balance;
+
+    // Constructor to initialize an account
+    public Account(double initialBalance) {
+        accountCount++;  // Increment the account count
+        this.accountNumber = accountCount;  // Unique account number
+        this.balance = initialBalance;
+    }
+
+    // Method to deposit money
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Deposited: " + amount);
+            displayBalance();
+        } else {
+            System.out.println("Deposit amount must be greater than zero.");
+        }
+    }
+
+    // Method to withdraw money
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            System.out.println("Withdrawn: " + amount);
+            displayBalance();
+        } else {
+            System.out.println("Invalid withdrawal amount.");
+        }
+    }
+
+    // Method to display the account balance
+    public void displayBalance() {
+        System.out.println("Account Balance: " + balance);
+    }
+}
+
+// Derived class - SavingsAccount
+class SavingsAccount extends Account {
+
+    public SavingsAccount(double initialBalance) {
+        super(initialBalance);
+    }
+
+    // Override deposit method to show a message specific to SavingsAccount
+    @Override
+    public void deposit(double amount) {
+        super.deposit(amount);
+        System.out.println("Savings account: Deposit successful!");
+    }
+
+    // Override withdraw method to show a message specific to SavingsAccount
+    @Override
+    public void withdraw(double amount) {
+        super.withdraw(amount);
+        System.out.println("Savings account: Withdrawal successful!");
+    }
+}
+
+// Derived class - CheckingAccount
+class CheckingAccount extends Account {
+
+    public CheckingAccount(double initialBalance) {
+        super(initialBalance);
+    }
+
+    // Override deposit method to show a message specific to CheckingAccount
+    @Override
+    public void deposit(double amount) {
+        super.deposit(amount);
+        System.out.println("Checking account: Deposit successful!");
+    }
+
+    // Override withdraw method to show a message specific to CheckingAccount
+    @Override
+    public void withdraw(double amount) {
+        super.withdraw(amount);
+        System.out.println("Checking account: Withdrawal successful!");
+    }
+}
+
+// Main class to test the program
+public class BankSystem {
+    public static void main(String[] args) {
+        // Create an instance of SavingsAccount
+        SavingsAccount savings = new SavingsAccount(1000.0);
+        savings.deposit(500.0);  // Deposit money into savings
+        savings.withdraw(200.0); // Withdraw money from savings
+
+        // Create an instance of CheckingAccount
+        CheckingAccount checking = new CheckingAccount(1500.0);
+        checking.deposit(700.0);  // Deposit money into checking
+        checking.withdraw(1000.0); // Withdraw money from checking
+    }
+}
