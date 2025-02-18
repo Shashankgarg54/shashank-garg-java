@@ -1,0 +1,59 @@
+import java.util.Scanner;
+
+public class NestedSwitchExample {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a number between 1 and 3 for the outer switch: ");
+        int outerChoice = sc.nextInt();
+
+        switch (outerChoice) {
+            case 1:
+                System.out.println("You selected outer case 1.");
+                System.out.print("Enter a number between 1 and 2 for the inner switch: ");
+                int innerChoice1 = sc.nextInt();
+
+                switch (innerChoice1) {
+                    case 1:
+                        System.out.println("Inner switch: You selected 1.");
+                        break;
+                    case 2:
+                        System.out.println("Inner switch: You selected 2.");
+                        break;
+                    default:
+                        System.out.println("Inner switch: Invalid selection.");
+                }
+                break;
+
+            case 2:
+                System.out.println("You selected outer case 2.");
+                System.out.print("Enter a number between 1 and 3 for the inner switch: ");
+                int innerChoice2 = sc.nextInt();
+
+                switch (innerChoice2) {
+                    case 1:
+                        System.out.println("Inner switch: You selected 1.");
+                        break;
+                    case 2:
+                        System.out.println("Inner switch: You selected 2.");
+                        break;
+                    case 3:
+                        System.out.println("Inner switch: You selected 3.");
+                        break;
+                    default:
+                        System.out.println("Inner switch: Invalid selection.");
+                }
+                break;
+
+            case 3:
+                System.out.println("You selected outer case 3.");
+                // No inner switch, just a message.
+                break;
+
+            default:
+                System.out.println("Invalid outer choice.");
+        }
+
+        sc.close();
+    }
+}
