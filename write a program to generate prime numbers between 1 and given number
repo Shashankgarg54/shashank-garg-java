@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class PrimeNumberGenerator {
+    
+    // Method to check if a number is prime
+    public static boolean isPrime(int num) {
+        if (num <= 1) {
+            return false;  // Numbers less than or equal to 1 are not prime
+        }
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false;  // If divisible by any number, it's not prime
+            }
+        }
+        return true;  // If not divisible by any number, it's prime
+    }
+
+    // Main method
+    public static void main(String[] args) {
+        
+        // Create a scanner object to take user input
+        Scanner scanner = new Scanner(System.in);
+        
+        // Ask the user for the upper limit
+        System.out.print("Enter a number to generate prime numbers up to: ");
+        int n = scanner.nextInt();
+        
+        System.out.println("Prime numbers between 1 and " + n + ":");
+        
+        // Generate prime numbers from 1 to n
+        for (int i = 1; i <= n; i++) {
+            if (isPrime(i)) {
+                System.out.print(i + " ");  // Print the prime number
+            }
+        }
+        
+        // Close the scanner
+        scanner.close();
+    }
+}
